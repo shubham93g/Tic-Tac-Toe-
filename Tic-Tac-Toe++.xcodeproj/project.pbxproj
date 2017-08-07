@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E92030DF1F38A865007655C7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92030DE1F38A865007655C7 /* main.cpp */; };
+		E92030E71F38A906007655C7 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92030E51F38A906007655C7 /* Grid.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		E92030DB1F38A865007655C7 /* Tic-Tac-Toe++ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Tic-Tac-Toe++"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92030DE1F38A865007655C7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E92030E51F38A906007655C7 /* Grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grid.cpp; sourceTree = "<group>"; };
+		E92030E61F38A906007655C7 /* Grid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Grid.hpp; sourceTree = "<group>"; };
+		E92030EA1F38ADD5007655C7 /* BlockState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				E92030DE1F38A865007655C7 /* main.cpp */,
+				E92030E51F38A906007655C7 /* Grid.cpp */,
+				E92030E61F38A906007655C7 /* Grid.hpp */,
+				E92030EA1F38ADD5007655C7 /* BlockState.h */,
 			);
 			path = "Tic-Tac-Toe++";
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92030DF1F38A865007655C7 /* main.cpp in Sources */,
+				E92030E71F38A906007655C7 /* Grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +226,7 @@
 		E92030E31F38A865007655C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -225,6 +234,7 @@
 		E92030E41F38A865007655C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
