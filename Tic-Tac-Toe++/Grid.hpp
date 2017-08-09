@@ -9,7 +9,6 @@
 #ifndef Grid_hpp
 #define Grid_hpp
 
-#include <stdio.h>
 #include "BlockState.h"
 
 #endif /* Grid_hpp */
@@ -24,7 +23,7 @@ public:
     bool isValidAddress(const int position) const;
     void print() const;
     void markIfEmpty(const int position, const BlockState blockState);
-    BlockState getState(const int position) const;
+    BlockState getBlock(const int position) const;
     Grid();
 private:
     void setUncheckedState(const int position, const BlockState blockState);

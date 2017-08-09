@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E92030DF1F38A865007655C7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92030DE1F38A865007655C7 /* main.cpp */; };
 		E92030E71F38A906007655C7 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92030E51F38A906007655C7 /* Grid.cpp */; };
+		E92030EE1F3B5A03007655C7 /* StrokeLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92030ED1F3B5A03007655C7 /* StrokeLocator.cpp */; };
+		E92030F11F3B5B25007655C7 /* Stroke.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92030EF1F3B5B25007655C7 /* Stroke.cpp */; };
+		E9C6C92B1F3B64680021EF0F /* BlockState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C6C92A1F3B64680021EF0F /* BlockState.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,10 @@
 		E92030E51F38A906007655C7 /* Grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grid.cpp; sourceTree = "<group>"; };
 		E92030E61F38A906007655C7 /* Grid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Grid.hpp; sourceTree = "<group>"; };
 		E92030EA1F38ADD5007655C7 /* BlockState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockState.h; sourceTree = "<group>"; };
+		E92030ED1F3B5A03007655C7 /* StrokeLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StrokeLocator.cpp; sourceTree = "<group>"; };
+		E92030EF1F3B5B25007655C7 /* Stroke.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stroke.cpp; sourceTree = "<group>"; };
+		E92030F01F3B5B25007655C7 /* Stroke.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stroke.hpp; sourceTree = "<group>"; };
+		E9C6C92A1F3B64680021EF0F /* BlockState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlockState.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +69,13 @@
 			isa = PBXGroup;
 			children = (
 				E92030DE1F38A865007655C7 /* main.cpp */,
-				E92030E51F38A906007655C7 /* Grid.cpp */,
+				E92030ED1F3B5A03007655C7 /* StrokeLocator.cpp */,
 				E92030E61F38A906007655C7 /* Grid.hpp */,
+				E92030E51F38A906007655C7 /* Grid.cpp */,
+				E92030F01F3B5B25007655C7 /* Stroke.hpp */,
+				E92030EF1F3B5B25007655C7 /* Stroke.cpp */,
 				E92030EA1F38ADD5007655C7 /* BlockState.h */,
+				E9C6C92A1F3B64680021EF0F /* BlockState.cpp */,
 			);
 			path = "Tic-Tac-Toe++";
 			sourceTree = "<group>";
@@ -127,7 +138,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92030DF1F38A865007655C7 /* main.cpp in Sources */,
+				E9C6C92B1F3B64680021EF0F /* BlockState.cpp in Sources */,
+				E92030EE1F3B5A03007655C7 /* StrokeLocator.cpp in Sources */,
 				E92030E71F38A906007655C7 /* Grid.cpp in Sources */,
+				E92030F11F3B5B25007655C7 /* Stroke.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +272,7 @@
 				E92030E41F38A865007655C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

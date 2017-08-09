@@ -27,33 +27,23 @@ bool Grid::isValidAddress(int position) const{
 Grid::Grid(){
     //initialise empty grid
     for(int i=0;i<LIMIT;i++){
-            setUncheckedState(i, BlockState::EMPTY);
+        setUncheckedState(i, BlockState::BlockState());
         }
 }
 
-BlockState Grid::getState(const int position) const{
+BlockState Grid::getBlock(const int position) const{
     if(isValidAddress(position)){
         return getUncheckedState(position);
     }
     //throw exception ?
-    return BlockState::EMPTY;
+    return BlockState::State::EMPTY;
 }
 
 void Grid::markIfEmpty(const int position, const BlockState blockState){
-    if(getState(position)==BlockState::EMPTY){
+    if(getBlock(position).getState()==BlockState::State::EMPTY){
         setUncheckedState(position,blockState);
     }
     //throw exception ?
-}
-
-std::ostream& operator<<(std::ostream& out, const BlockState value){
-    static std::map<BlockState, std::string> strings {
-        {BlockState::EMPTY, "_"},
-        {BlockState::CROSS, "X"},
-        {BlockState::CIRCLE, "O"}
-    };
-    
-    return out << strings[value];
 }
 
 void Grid::print() const{

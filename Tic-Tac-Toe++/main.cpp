@@ -7,8 +7,8 @@
 //
 
 #include <iostream>
-#include <set>
-#include "Grid.hpp"
+#include <vector>
+#include "StrokeLocator.cpp"
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
@@ -16,14 +16,12 @@ int main(int argc, const char * argv[]) {
     grid.print();
     grid.markIfEmpty(0, BlockState::CIRCLE);
     grid.print();
+
+    std::vector<Stroke> strokes = StrokeLocator::findStrokes(grid, BlockState(BlockState::State::CROSS));
+    
+    //todo get best position to mark from probability evaluator
+    //todo also factor in how many "moves" are required to complete a stroke
     grid.markIfEmpty(8, BlockState::CROSS);
     grid.print();
     return 0;
-}
-
-void testingFunction(){
-    typedef std::pair<int, int> Point; //or could I use a different identifier ?
-    //todo need a structure to hold 3 Points in any sequence - might be easier to store a sequence
-    typedef std::set<Point> List; //needs to be a set of the structure having 3 points
-    //todo a map to count the number of 3 point structures
 }
