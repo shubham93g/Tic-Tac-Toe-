@@ -18,15 +18,16 @@
 
 class Grid{
 public:
-    static const int LIMIT = 3;
+    static const int LIMIT = 9;
+    static const int STEP = 3;
     
-    bool isValidAddress(const int positionX, const int positionY) const;
+    bool isValidAddress(const int position) const;
     void print() const;
-    void markIfEmpty(const int positionX, const int positionY, const BlockState blockState);
-    BlockState getState(const int positionX, const int positionY) const;
+    void markIfEmpty(const int position, const BlockState blockState);
+    BlockState getState(const int position) const;
     Grid();
 private:
-    void setUncheckedState(const int positionX, const int positionY, const BlockState blockState);
-    BlockState getUncheckedState(const int positionX, const int positionY) const;
-    BlockState playingGrid[LIMIT][LIMIT];
+    void setUncheckedState(const int position, const BlockState blockState);
+    BlockState getUncheckedState(const int position) const;
+    BlockState playingGrid[LIMIT];
 };
