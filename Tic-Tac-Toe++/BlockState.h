@@ -6,12 +6,9 @@
 //  Copyright © 2017 Shubham Goyal. All rights reserved.
 //
 
-#include <map>
-
 #ifndef BlockState_h
 #define BlockState_h
-
-
+#include <map>
 #endif /* BlockState_h */
 class BlockState{
 public:

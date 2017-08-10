@@ -6,20 +6,16 @@
 //  Copyright © 2017 Shubham Goyal. All rights reserved.
 //
 
-#include "Grid.hpp"
-#include "Stroke.hpp"
-#include <vector>
+#include "StrokeLocator.h"
 
-class StrokeLocator{
-private:
 
-    static bool isValidStroke(Stroke &stroke, const Grid &grid, const BlockState targetBlockState){
+    bool StrokeLocator::isValidStroke(Stroke &stroke, const Grid &grid, const BlockState targetBlockState){
         return grid.getBlock(stroke.getFirst()).isAssignableFrom(targetBlockState)
         && grid.getBlock(stroke.getSecond()).isAssignableFrom(targetBlockState)
         && grid.getBlock(stroke.getThird()).isAssignableFrom(targetBlockState);
     }
     
-    static void addVerticalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState){
+    void StrokeLocator::addVerticalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState){
         for(int column = 0; column < Grid::STEP ; column ++){
             Stroke stroke = Stroke (column, Grid::STEP);
             if(isValidStroke(stroke, grid, targetBlockState)){
@@ -28,7 +24,7 @@ private:
         }
     }
     
-    static void addHorizontalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState){
+    void StrokeLocator::addHorizontalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState){
         for(int row = 0; row < Grid::LIMIT ; row +=Grid::STEP){
             Stroke stroke = Stroke (row, 1);
             if(isValidStroke(stroke, grid, targetBlockState)){
@@ -37,7 +33,7 @@ private:
         }
     }
     
-    static void addDiagonalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState){
+    void StrokeLocator::addDiagonalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState){
         Stroke leftStroke = Stroke (0, 4);
         if(isValidStroke(leftStroke, grid, targetBlockState)){
             strokes.push_back(leftStroke);
@@ -48,8 +44,8 @@ private:
             strokes.push_back(rightStroke);
         }
     }
-public:
-    static std::vector<Stroke> findStrokes(const Grid &grid, const BlockState targetBlockState){
+
+    std::vector<Stroke> StrokeLocator::findStrokes(const Grid &grid, const BlockState targetBlockState){
         std::vector<Stroke> strokes;
         addVerticalStrokes(strokes, grid, targetBlockState);
         addHorizontalStrokes(strokes, grid, targetBlockState);
@@ -57,4 +53,3 @@ public:
         strokes.erase(unique(strokes.begin(), strokes.end()), strokes.end()); //only take unique strokes -- maybe this is not required at all now !
         return strokes;
     }
-};
