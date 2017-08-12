@@ -13,11 +13,14 @@
 class Stroke{
 private:
     int blocks[3];
+    int movesRequired;
     //todo add block state for later implementation
 public:
     Stroke(int startPosition, int positionIncrement);
     int getFirst()const;
     int getSecond()const;
     int getThird()const;
+    int getMovesRequired()const;
+    void setMovesRequired(const int moves);
     friend bool operator==(const Stroke &strokeA,const Stroke &strokeB);
 };

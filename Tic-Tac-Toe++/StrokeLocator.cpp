@@ -1,5 +1,5 @@
 //
-//  StrokeLocator.h
+//  StrokeLocator.cpp
 //  Tic-Tac-Toe++
 //
 //  Created by Shubham Goyal on 9/8/17.
@@ -8,8 +8,20 @@
 
 #include "StrokeLocator.h"
 
-
+    //also calculates moves required
     bool StrokeLocator::isValidStroke(Stroke &stroke, const Grid &grid, const BlockState targetBlockState){
+        int movesRequired = 0;
+        if(grid.getBlock(stroke.getFirst()).getState() == BlockState::EMPTY){
+            movesRequired++;
+        }
+        if(grid.getBlock(stroke.getSecond()).getState() == BlockState::EMPTY){
+            movesRequired++;
+        }
+        if(grid.getBlock(stroke.getThird()).getState() == BlockState::EMPTY){
+            movesRequired++;
+        }
+        stroke.setMovesRequired(movesRequired);
+        
         return grid.getBlock(stroke.getFirst()).isAssignableFrom(targetBlockState)
         && grid.getBlock(stroke.getSecond()).isAssignableFrom(targetBlockState)
         && grid.getBlock(stroke.getThird()).isAssignableFrom(targetBlockState);
@@ -45,11 +57,34 @@
         }
     }
 
-    std::vector<Stroke> StrokeLocator::findStrokes(const Grid &grid, const BlockState targetBlockState){
+    std::vector<Stroke> StrokeLocator::getStrokesWithLeastMoves(std::vector<Stroke> &strokes){
+        std::vector<Stroke> oneMoves, twoMoves, threeMoves;
+        for(std::vector<Stroke>::iterator stroke = strokes.begin(); stroke < strokes.end(); stroke ++){
+            if(stroke->getMovesRequired()==1){
+                oneMoves.push_back(*stroke);
+            }
+            if(stroke->getMovesRequired()==2){
+                twoMoves.push_back(*stroke);
+            }
+            if(stroke->getMovesRequired()==3){
+                threeMoves.push_back(*stroke);
+            }
+        }
+        
+        if(oneMoves.size()!=0){
+            return oneMoves;
+        }
+        if(twoMoves.size()!=0){
+            return twoMoves;
+        }
+        return threeMoves;
+    }
+
+    std::vector<Stroke> StrokeLocator::findStrokesWithLeastMoves(const Grid &grid, const BlockState targetBlockState){
         std::vector<Stroke> strokes;
         addVerticalStrokes(strokes, grid, targetBlockState);
         addHorizontalStrokes(strokes, grid, targetBlockState);
         addDiagonalStrokes(strokes, grid, targetBlockState);
-        strokes.erase(unique(strokes.begin(), strokes.end()), strokes.end()); //only take unique strokes -- maybe this is not required at all now !
+        strokes = getStrokesWithLeastMoves(strokes);
         return strokes;
     }

@@ -12,6 +12,7 @@
         blocks[0] = startPosition;
         blocks[1] = startPosition + positionIncrement;
         blocks[2] = startPosition + positionIncrement*2;
+        movesRequired = 3; // default value
     }
     
     int Stroke::getFirst() const{
@@ -24,6 +25,14 @@
     
     int Stroke::getThird() const{
         return blocks[2];
+    }
+
+    int Stroke::getMovesRequired()const{
+        return movesRequired;
+    }
+
+    void Stroke::setMovesRequired(const int moves){
+        movesRequired = moves;
     }
 
     bool operator==(const Stroke &strokeA, const Stroke &strokeB) {

@@ -8,27 +8,18 @@
 
 #include "ProbabilityLocator.hpp"
 
- void ProbabilityLocator::incrementBlockCount(std::map<int,int> &blockCounts, const int blockPosition){
-    std::map<int, int>::iterator block = blockCounts.find(blockPosition);
-    int value = block->second;
-    block->second = ++value;
+ void ProbabilityLocator::incrementBlockCount(int blockCounts[], const int blockPosition){
+    int count = blockCounts[blockPosition];
+    blockCounts[blockPosition] = ++count;
 }
 
-//todo I could very simply just place an array here..sigh
-//i made this so complicated..
-//lesson learnt - think simple
 int ProbabilityLocator::extractMostProbableBlock(std::vector<Stroke> &strokes, Grid &grid){
-    std::map<int,int> blockCounts {
-        {0,0},
-        {1,0},
-        {2,0},
-        {3,0},
-        {4,0},
-        {5,0},
-        {6,0},
-        {7,0},
-        {8,0}
-    };
+    
+    if(strokes.size()==0){
+        return -1;
+    }
+    
+    int blockCounts[9] = {0,0,0,0,0,0,0,0};
     
     for(std::vector<Stroke>::iterator stroke = strokes.begin(); stroke < strokes.end(); stroke ++){
         if(grid.getBlock(stroke->getFirst()).getState() == BlockState::EMPTY){
@@ -42,12 +33,12 @@ int ProbabilityLocator::extractMostProbableBlock(std::vector<Stroke> &strokes, G
         }
     }
     
-    std::map<int, int>::iterator mostProbable = blockCounts.begin();
-    for(std::map<int, int>::iterator block = blockCounts.begin(); block != blockCounts.end(); block ++){
-        if(block->second > mostProbable->second){
-            mostProbable = block;
+    int mostProbable = 0;
+    for(int position = 0; position < 9; position++){
+        if(blockCounts[position] > blockCounts[mostProbable]){
+            mostProbable = position;
         }
     }
     
-    return mostProbable->first;
+    return mostProbable;
 }

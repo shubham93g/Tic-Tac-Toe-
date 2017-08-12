@@ -12,12 +12,13 @@
 #include <vector>
 #include <map>
 #include "StrokeLocator.h"
+#include <iostream>
 
 #endif /* ProbabilityLocator_hpp */
 
 class ProbabilityLocator{
 private:
-    static void incrementBlockCount(std::map<int,int> &blockCounts, const int blockPosition);
+    static void incrementBlockCount(int blockCounts[], const int blockPosition);
 public:
     static int extractMostProbableBlock(std::vector<Stroke> &strokes, Grid &grid);
 };

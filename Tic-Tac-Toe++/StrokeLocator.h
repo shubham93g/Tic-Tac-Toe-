@@ -13,14 +13,6 @@
 #include <vector>
 #endif /* StrokeLocator_h */
 
-//
-//  StrokeLocator.h
-//  Tic-Tac-Toe++
-//
-//  Created by Shubham Goyal on 9/8/17.
-//  Copyright © 2017 Shubham Goyal. All rights reserved.
-//
-
 class StrokeLocator{
 private:
     
@@ -28,6 +20,7 @@ private:
     static void addVerticalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState);
     static void addHorizontalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState);
     static void addDiagonalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState);
+    static std::vector<Stroke> getStrokesWithLeastMoves(std::vector<Stroke> &strokes);
 public:
-    static std::vector<Stroke> findStrokes(const Grid &grid, const BlockState targetBlockState);
+    static std::vector<Stroke> findStrokesWithLeastMoves(const Grid &grid, const BlockState targetBlockState);
 };
