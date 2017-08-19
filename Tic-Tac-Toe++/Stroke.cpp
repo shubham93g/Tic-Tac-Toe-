@@ -9,22 +9,22 @@
 #include "Stroke.hpp"
 
     Stroke ::Stroke(int startPosition, int positionIncrement){
-        blocks[0] = startPosition;
-        blocks[1] = startPosition + positionIncrement;
-        blocks[2] = startPosition + positionIncrement*2;
+        blockPositionsOnGrid[0] = startPosition;
+        blockPositionsOnGrid[1] = startPosition + positionIncrement;
+        blockPositionsOnGrid[2] = startPosition + positionIncrement*2;
         movesRequired = 3; // default value
     }
     
     int Stroke::getFirst() const{
-        return blocks[0];
+        return blockPositionsOnGrid[0];
     }
     
     int Stroke::getSecond() const{
-        return blocks[1];
+        return blockPositionsOnGrid[1];
     }
     
     int Stroke::getThird() const{
-        return blocks[2];
+        return blockPositionsOnGrid[2];
     }
 
     int Stroke::getMovesRequired()const{

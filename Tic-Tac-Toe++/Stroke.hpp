@@ -12,7 +12,7 @@
 #endif /* Stroke_hpp */
 class Stroke{
 private:
-    int blocks[3];
+    int blockPositionsOnGrid[3];
     int movesRequired;
     //todo add block state for later implementation
 public:

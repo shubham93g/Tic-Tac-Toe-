@@ -19,6 +19,7 @@
 class ProbabilityLocator{
 private:
     static void incrementBlockCount(int blockCounts[], const int blockPosition);
+	static int extractMostProbableEmptyBlock(std::vector<Stroke> &strokesWithMinMoves, const Grid &grid);
 public:
-    static int extractMostProbableBlock(std::vector<Stroke> &strokes, Grid &grid);
+    static int extractMostProbableEmptyBlock(std::vector<Stroke> &aiStrokesPossible, std::vector<Stroke> &playerStrokesPossible, const Grid &grid);
 };

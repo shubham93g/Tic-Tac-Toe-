@@ -16,7 +16,8 @@
 class StrokeLocator{
 private:
     
-    static bool isValidStroke(Stroke &stroke, const Grid &grid, const BlockState targetBlockState);
+    static bool isValidStroke(const Stroke &stroke, const Grid &grid, const BlockState targetBlockState);
+	static void calculateMovesToCompleteStroke(Stroke &stroke, const Grid &grid, const BlockState targetBlockState);
     static void addVerticalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState);
     static void addHorizontalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState);
     static void addDiagonalStrokes(std::vector<Stroke> &strokes,const Grid &grid, const BlockState targetBlockState);
