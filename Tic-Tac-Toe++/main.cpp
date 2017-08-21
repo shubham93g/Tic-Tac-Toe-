@@ -11,9 +11,9 @@
 #include "ProbabilityLocator.hpp"
 
 int main(int argc, const char * argv[]) {
-    //todo figure end game winner and better game end condition
 	//todo randomize start and symbols assigned to player vs AI
 	//todo make this more expandable w.r.t grid size
+	//todo make the AI configurable
     
     Grid grid;
     grid.print();
@@ -28,6 +28,9 @@ int main(int argc, const char * argv[]) {
         if(input!=-1){
             grid.markIfEmpty(input, player);
             grid.print();
+			if (StrokeLocator::isGameOver(input, grid)) {
+				break;
+			}
         } else {
             break;
         }
@@ -38,6 +41,9 @@ int main(int argc, const char * argv[]) {
         if(blockToMark!=-1){
             grid.markIfEmpty(blockToMark, ai);
             grid.print();
+			if (StrokeLocator::isGameOver(blockToMark, grid)) {
+				break;
+			}
         } else {
             break;
         }
